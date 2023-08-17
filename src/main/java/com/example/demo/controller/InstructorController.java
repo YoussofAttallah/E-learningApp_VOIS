@@ -2,9 +2,8 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Instructor;
 import com.example.demo.service.InstructorService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import jakarta.validation.Valid;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -20,5 +19,15 @@ public class InstructorController {
     @GetMapping
     public List<Instructor> getAllInstructors() {
         return instructorService.getAllInstructors();
+    }
+
+    @PostMapping()
+    public void createNewInstructor(@RequestBody @Valid Instructor instructor) {
+        instructorService.createNewInstructor(instructor);
+    }
+
+    @GetMapping("/{instructorId}")
+    public Instructor getInstructor(@PathVariable(name = "instructorId") Integer instructorId) {
+        return instructorService.getInstructor(instructorId);
     }
 }
