@@ -26,6 +26,7 @@ public class InstructorService {
         instructorDAO.save(instructor);
     }
 
+    @Transactional
     public Instructor getInstructor(Integer instructorId) {
         return instructorDAO.findById(instructorId)
                         .orElseThrow(() -> new InstructorNotFoundException("instructor not found"));
