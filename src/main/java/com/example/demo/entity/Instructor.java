@@ -34,7 +34,7 @@ public class Instructor {
     private Integer ratingTotal = 0;
     @Column(name = "link")
     private String link;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Instructor")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "instructor")
     private List<Course> courses;
 
 }

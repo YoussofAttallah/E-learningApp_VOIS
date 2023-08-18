@@ -1,7 +1,7 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Instructor;
-import com.example.demo.exceptions.InstructorNotFoundException;
+import com.example.demo.exceptions.NotFoundException;
 import com.example.demo.repository.InstructorDAO;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +29,6 @@ public class InstructorService {
     @Transactional
     public Instructor getInstructor(Integer instructorId) {
         return instructorDAO.findById(instructorId)
-                        .orElseThrow(() -> new InstructorNotFoundException("instructor not found"));
+                        .orElseThrow(() -> new NotFoundException("instructor not found"));
     }
 }
