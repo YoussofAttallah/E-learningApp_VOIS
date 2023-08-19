@@ -17,7 +17,7 @@ public class Course {
 
     private String title;
     private String link;
-
+    private Integer duration;
     private Integer instructorId;
     private String imageLink;
     private Integer viewersNum;
