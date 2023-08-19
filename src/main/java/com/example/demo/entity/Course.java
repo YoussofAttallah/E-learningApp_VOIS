@@ -1,15 +1,14 @@
-package com.example.demo.model;
+package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity // This tells Hibernate to make a table out of this class
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Course {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
@@ -24,7 +23,8 @@ public class Course {
     private Integer ratingNum;
     private float rating;
 
-
-
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
+    @JoinColumn(name = "instructor_id", nullable = false)
+    private Instructor instructor;
 
 }
