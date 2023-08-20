@@ -5,44 +5,8 @@ info:
   termsOfService: http://swagger.io/terms/
   version: 1.0.0
 servers:
-  - url: /api/
+  - url: https://petstore3.swagger.io/api/v3
 paths:
-  /courses:
-    post:
-      tags:
-        - courses
-      summary: create a new course
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Course'
-      responses:
-        '200':
-          description: created new course successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Course'
-        '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
-        '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
   /courses/all:
     get:
       tags: 
@@ -57,25 +21,10 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Course'
+                  
         '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
-        '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
-
+          description: Invalid status value
+          
   /courses/{courseId}:
     get:
       tags:
@@ -100,99 +49,9 @@ paths:
                 $ref: '#/components/schemas/Course'          
         
         '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
+          description: Invalid course Id supplied
         '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
-
-    put:
-      tags:
-        - courses
-      summary: update existing course
-      parameters:
-        - name: courseId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Course'
-      responses:
-        '200':
-          description: course updated successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Course'
-        '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
-        '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
-
-    delete:
-      tags:
-        - courses
-      summary: delete specific course
-      parameters:
-        - name: courseId
-          in: path
-          required: true
-          schema:
-            type: integer
-            format: int64
-      responses:
-        '200':
-          description: course deleted successfully
-        '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
-        '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
+          description: Course not found
    
   /courses/{courseName}:
     get:
@@ -218,23 +77,9 @@ paths:
                 $ref: '#/components/schemas/Course'          
             
         '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
+          description: Invalid course name supplied
         '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
+          description: Course not found
   /instructor/all:
     get:
       tags: 
@@ -251,23 +96,7 @@ paths:
                   $ref: '#/components/schemas/Instructor'
                   
         '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
-        '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
+          description: Invalid status value           
   
   /instructor/{instructorName}:
     get:
@@ -291,25 +120,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Instructor'          
+            
         '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
+          description: Invalid instructor name supplied
         '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
-
+          description: instructor not found
+          
   /instructor/{instructorId}:
     get:
       tags:
@@ -332,349 +148,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Instructor'          
+            
         '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
+          description: Invalid instructor Id supplied
         '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
-    put:
-      tags:
-        - instructor
-      summary: update existing instructor
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Instructor'
-      responses:
-        '200':
-          description: instructor updated successfully
+          description: instructor not found 
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Instructor'
-        '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
-        '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
-    delete:
-      tags:
-        - instructor
-      summary: delete existing instructor
-      responses:
-        '200':
-          description: instructor deleted successfully
-        '400':
-          description: invalid instructor id
-        '404':
-          description: instructor not found
-
-  /instructor:
-    post:
-      tags:
-        - instructor
-      summary: add new instructor
-      requestBody:
-        required: true
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Instructor'
-      responses:
-        '200':
-          description: instructor created successfully
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Instructor'
-        '400':
-          $ref: '#/components/responses/400Error'
-        '401':
-          $ref: '#/components/responses/401Error'
-        '403':
-          $ref: '#/components/responses/403Error'
-        '404':
-          $ref: '#/components/responses/404Error'
-        '405':
-          $ref: '#/components/responses/405Error'
-        '406':
-          $ref: '#/components/responses/406Error'
-        '415':
-          $ref: '#/components/responses/415Error'
-        '429':
-          $ref: '#/components/responses/429Error'
-        '500':
-          $ref: '#/components/responses/500Error'
-
-
-
+                $ref: '#/components/schemas/Error'  
 components:
-  responses:
-    400Error:
-      description: Bad request
-      headers:
-        x-request-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.400.001
-                message: Customer POINumber is invalid.
-                path: request.body.poiNumber
-                url: "https://{baseURL}/developer-portal/terms"
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.400.001
-                message: Customer POINumber is invalid.
-                path: request.body.poiNumber
-                url: "https://{baseURL}/developer-portal/terms"
-    401Error:
-      description: Unauthorized
-      headers:
-        x-request-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.401.001
-                message: Unauthorized to call the target operation.
-                path: authorization
-                url: "https://{baseURL}/developer-portal/terms"
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.401.001
-                message: Unauthorized to call the target operation.
-                path: authorization
-                url: "https://{baseURL}/developer-portal/terms"
-    403Error:
-      description: Forbidden
-      headers:
-        x-request-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.403.001
-                message: Can't find any valid subscription.
-                url: "https://{baseURL}/developer-portal/terms"
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.403.001
-                message: Can't find any valid subscription.
-                url: "https://{baseURL}/developer-portal/terms"
-    404Error:
-      description: Not found
-      headers:
-        x-request-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.404.001
-                message: No resources match requested URI.
-                url: "https://{baseURL}/developer-portal/terms"
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.404.001
-                message: No resources match requested URI.
-                url: "https://{baseURL}/developer-portal/terms"
-    405Error:
-      description: Method Not Allowed
-      headers:
-        x-request-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.405.001
-                message: The method is not allowed for the requested URL.
-                url: "https://{baseURL}/developer-portal/terms"
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.405.001
-                message: The method is not allowed for the requested URL.
-                url: "https://{baseURL}/developer-portal/terms"
-    406Error:
-      description: Not Acceptable
-      headers:
-        x-request-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.406.001
-                message: >-
-                  An appropriate representation of the requested resource could
-                  not be found
-                url: "https://{baseURL}/developer-portal/terms"
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.406.001
-                message: >-
-                  An appropriate representation of the requested resource could
-                  not be found
-                url: "https://{baseURL}/developer-portal/terms"
-    415Error:
-      description: Unsupported Media Type
-      headers:
-        x-request-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.415.001
-                message: Unsupported Content-Type
-                url: "https://{baseURL}/developer-portal/terms"
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.415.001
-                message: Unsupported Content-Type
-                url: "https://{baseURL}/developer-portal/terms"
-    429Error:
-      description: Too Many Requests
-      headers:
-        x-request-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-        Retry-After:
-          description: Number in seconds to wait
-          schema:
-            type: integer
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.429.001
-                message: Assembly Rate Limit exceeded
-                url: "https://{baseURL}/developer-portal/terms"
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.429.001
-                message: Assembly Rate Limit exceeded
-                url: "https://{baseURL}/developer-portal/terms"
-    500Error:
-      description: Internal Server Error
-      headers:
-        x-request-id:
-          description: An RFC4122 UID used as a correlation id.
-          required: true
-          schema:
-            type: string
-      content:
-        application/json; charset=utf-8:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.500.001
-                message: Internal Error
-                url: "https://{baseURL}/developer-portal/terms"
-        application/json:
-          schema:
-            $ref: "#/components/schemas/ErrorResponse"
-          example:
-            errors:
-              - code: ERROR.500.001
-                message: Internal Error
-                url: "https://{baseURL}/developer-portal/terms"
   schemas:
     Error: 
       type: object
@@ -706,6 +189,10 @@ components:
           type: string
           format: url
           example: "www.udemy.com"
+        Duration:
+          type: integer
+          format: int64
+          example: 10  
         CourseImg:
           type: string
           format: url
@@ -753,64 +240,12 @@ components:
           type: string
           format: url
           example: "www.linkedin.com"
-
-    ErrorResponse:
-      description: >-
-        An array of detail error codes, and messages, and URLs to documentation
-        to help remediation.
-      type: object
-      properties:
-        errors:
-          minItems: 1
-          type: array
-          items:
-            $ref: "#/components/schemas/ErrorNew"
-      required:
-        - errors
-      additionalProperties: false
-    ErrorNew:
-      required:
-        - code
-        - message
-      type: object
-      properties:
-        code:
-          type: string
-          description: "Low level textual error code, e.g., ERROR.400.001"
-          example: ERROR.400.001
-        message:
-          maxLength: 500
-          minLength: 1
-          type: string
-          description: >-
-            A description of the error that occurred. e.g., 'A mandatory field
-            isn't supplied' or 'RequestedExecutionDateTime must be in future'
-            OBIE doesn't standardise this field
-          example: Instructed identification is missing
-        path:
-          maxLength: 500
-          minLength: 1
-          type: string
-          description: >-
-            Recommended but optional reference to the JSON Path of the field
-            with error, e.g., Data.Initiation.InstructedAmount.Currency
-          example: Data.Initiation.InstructionIdentification
-        url:
-          type: string
-          description: >-
-            URL to help remediate the problem, or provide more information, or
-            to API Reference, or help etc
-          example: >-
-            https://{baseURL}/developer-portal/term
-
-          # Courses:
+        # Courses: 
         #   type: array
         #   items: 
         #     type: integer
         #     format: CourseId
         #     example: ["frontend","devops"]
-
-
           
       xml:
         name: order
