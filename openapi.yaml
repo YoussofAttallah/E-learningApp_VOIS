@@ -354,6 +354,14 @@ paths:
       tags:
         - instructor
       summary: update existing instructor
+      parameters:
+        - name: instructorId
+          in: path
+          description: Id of instructor to return
+          required: true
+          schema:
+            type: integer
+            format: int64
       requestBody:
         required: true
         content:
@@ -389,14 +397,35 @@ paths:
       tags:
         - instructor
       summary: delete existing instructor
+      parameters:
+        - name: instructorId
+          in: path
+          description: Id of instructor to return
+          required: true
+          schema:
+            type: integer
+            format: int64
       responses:
         '200':
           description: instructor deleted successfully
         '400':
-          description: invalid instructor id
+          $ref: '#/components/responses/400Error'
+        '401':
+          $ref: '#/components/responses/401Error'
+        '403':
+          $ref: '#/components/responses/403Error'
         '404':
-          description: instructor not found
-
+          $ref: '#/components/responses/404Error'
+        '405':
+          $ref: '#/components/responses/405Error'
+        '406':
+          $ref: '#/components/responses/406Error'
+        '415':
+          $ref: '#/components/responses/415Error'
+        '429':
+          $ref: '#/components/responses/429Error'
+        '500':
+          $ref: '#/components/responses/500Error'
   /instructor:
     post:
       tags:
