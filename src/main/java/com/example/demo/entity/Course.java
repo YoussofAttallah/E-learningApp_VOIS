@@ -23,6 +23,6 @@ public class Course {
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
     @JoinColumn(name = "instructor_id", nullable = false)
-    private Instructor instructor;
+    private com.example.demo.entity.Instructor instructor;
 
 }

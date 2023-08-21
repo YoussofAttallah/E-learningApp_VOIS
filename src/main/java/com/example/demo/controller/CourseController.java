@@ -18,7 +18,7 @@ public class CourseController {
 //    @PostMapping(path="course/add") // Map ONLY POST Requests
 //    public @ResponseBody String addNewCourse (@RequestParam String course_name, @RequestParam String dept_name
 //            , @RequestParam Integer instructor_id, @RequestParam Integer duration) {
-//        // @ResponseBody means the returned String is the response, not a view name
+//        // @ResponseBody means the returned S tring is the response, not a view name
 //        // @RequestParam means it is a parameter from the GET or POST request
 //        Course n = new Course();
 //        n.setCourseName(course_name);
