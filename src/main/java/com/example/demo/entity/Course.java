@@ -6,6 +6,7 @@ import lombok.*;
 @Entity // This tells Hibernate to make a table out of this class
 @Data
 @RequiredArgsConstructor
+//@AllArgsConstructor
 @NoArgsConstructor
 public class Course {
     @Id
@@ -16,14 +17,14 @@ public class Course {
     @NonNull
     private String link;
     private Integer duration;
-    private Integer instructorId;
+//    private Integer instructorId;
     private String imageLink;
     private Integer viewersNum;
     private Integer ratingNum;
-    private float rating;
+    private Integer totalRating;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
-    @JoinColumn(nullable = false)
+////    @JoinColumn(name = "instructorId",nullable = false)
     private Instructor instructor;
 
 }

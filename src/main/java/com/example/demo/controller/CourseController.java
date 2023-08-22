@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @RestController // This means that this class is a Controller
 @RequestMapping(path="/courses")
 @RequiredArgsConstructor
@@ -16,16 +18,17 @@ public class CourseController {
     private final CoursesService coursesService;
 
     @PostMapping
-    public ResponseEntity<?> add(Course course)
+    public void add(@RequestBody Course course)
     {
         coursesService.addCourse(course);
-        return new ResponseEntity<>(HttpStatus.CREATED);
+//        return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public ResponseEntity<?> update(Course course)
+    @PutMapping("/{id}")
+    public ResponseEntity<?> update(@PathVariable Integer id,
+                                    @RequestBody Map<String, Object> updates)
     {
-        coursesService.updateCourse(course);
+        coursesService.updateCourse(id,updates);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -37,10 +40,16 @@ public class CourseController {
         return new ResponseEntity<>(coursesService.getAllCourses(), HttpStatus.OK);
     }
 
-    @GetMapping("/search")
-    public ResponseEntity<?> searchCourse(@RequestParam Integer id, @RequestParam String title)
+    @GetMapping("/findById/{id}")
+    public ResponseEntity<?> searchId(@PathVariable Integer id)
     {
-        return new ResponseEntity<>(coursesService.findCourse(id,title),HttpStatus.OK);
+        return new ResponseEntity<>(coursesService.findById(id),HttpStatus.OK);
+
+    }
+    @GetMapping("/findByTitle/{title}")
+    public ResponseEntity<?> searchTitle(@PathVariable String title)
+    {
+        return new ResponseEntity<>(coursesService.findByTitle(title),HttpStatus.OK);
 
     }
 
