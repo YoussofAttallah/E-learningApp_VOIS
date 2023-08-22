@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @Entity(name = "instructor")
 @Data
+
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
@@ -33,7 +35,8 @@ public class Instructor {
     private Integer ratingTotal = 0;
     @Column(name = "link")
     private String link;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "instructor")
-    private List<com.example.demo.entity.Course> courses;
+    @OneToMany(mappedBy = "instructor")
+    @JsonIgnore
+    private List<Course> courses;
 
 }

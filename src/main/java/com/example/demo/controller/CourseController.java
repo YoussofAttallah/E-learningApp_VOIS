@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController // This means that this class is a Controller
-@RequestMapping(path="/courses")
+@RequestMapping(path="/api/courses")
 @RequiredArgsConstructor
 public class CourseController {
 

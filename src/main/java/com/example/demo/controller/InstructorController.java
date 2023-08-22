@@ -17,7 +17,7 @@ public class InstructorController {
         this.instructorService = instructorService;
     }
 
-    @GetMapping
+    @GetMapping("/all")
     public List<Instructor> getAllInstructors() {
         return instructorService.getAllInstructors();
     }
@@ -44,8 +44,8 @@ public class InstructorController {
         return ResponseEntity.ok("Instructor deleted successfully");
     }
 
-    @GetMapping("/{instructorName}")
-    public Instructor findInstructorByName(@PathVariable("instructorName") String name) {
-        return instructorService.findInstructorByName(name);
+    @GetMapping("/search/{instructorName}")
+    public List<Instructor> findInstructorByName(@PathVariable() String instructorName) {
+        return instructorService.findInstructorByName(instructorName);
     }
 }

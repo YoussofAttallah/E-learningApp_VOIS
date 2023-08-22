@@ -44,7 +44,7 @@ public class InstructorService {
         instructorDAO.deleteById(instructorId);
     }
     @Transactional
-    public Instructor findInstructorByName(String name) {
+    public List<Instructor> findInstructorByName(String name) {
         return instructorDAO.findInstructorByInstructorName(name);
     }
 }

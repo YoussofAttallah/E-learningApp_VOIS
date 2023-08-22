@@ -3,6 +3,8 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity // This tells Hibernate to make a table out of this class
 @Data
 @RequiredArgsConstructor
@@ -23,7 +25,7 @@ public class Course {
     private Integer ratingNum;
     private Integer totalRating;
 
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
-////    @JoinColumn(name = "instructorId",nullable = false)
+    @ManyToOne()
+    @JoinColumn(name = "instructorId",nullable = false)
     private Instructor instructor;
 }
