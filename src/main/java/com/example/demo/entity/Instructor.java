@@ -34,6 +34,6 @@ public class Instructor {
     @Column(name = "link")
     private String link;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "instructor")
-    private List<Course> courses;
+    private List<com.example.demo.entity.Course> courses;
 
 }
