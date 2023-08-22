@@ -50,7 +50,6 @@ public class CourseController {
     public ResponseEntity<?> searchTitle(@PathVariable String title)
     {
         return new ResponseEntity<>(coursesService.findByTitle(title),HttpStatus.OK);
-
     }
 
 @DeleteMapping("/{id}")

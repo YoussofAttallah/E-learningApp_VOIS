@@ -26,5 +26,4 @@ public class Course {
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST})
 ////    @JoinColumn(name = "instructorId",nullable = false)
     private Instructor instructor;
-
 }
