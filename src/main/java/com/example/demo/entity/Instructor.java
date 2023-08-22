@@ -6,7 +6,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.hibernate.annotations.NotFound;
 
 import java.util.List;
 
@@ -35,6 +34,6 @@ public class Instructor {
     @Column(name = "link")
     private String link;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "instructor")
-    private List<Course> courses;
+    private List<com.example.demo.entity.Course> courses;
 
 }

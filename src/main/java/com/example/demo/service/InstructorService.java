@@ -31,4 +31,20 @@ public class InstructorService {
         return instructorDAO.findById(instructorId)
                         .orElseThrow(() -> new NotFoundException("instructor not found"));
     }
+
+    @Transactional
+    public Instructor updateInstructor(Integer instructorId, Instructor instructor) {
+        instructorDAO.findById(instructorId).orElseThrow(() -> new NotFoundException("instructor doesn't exist"));
+        instructorDAO.save(instructor);
+        return instructor;
+    }
+    @Transactional
+    public void deleteInstructor(Integer instructorId) {
+        instructorDAO.findById(instructorId).orElseThrow(() -> new NotFoundException("instructor doesn't exist"));
+        instructorDAO.deleteById(instructorId);
+    }
+    @Transactional
+    public Instructor findInstructorByName(String name) {
+        return instructorDAO.findInstructorByInstructorName(name);
+    }
 }

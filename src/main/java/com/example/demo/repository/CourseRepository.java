@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-// This will be AUTO IMPLEMENTED by Spring into a Bean called userRepository
+// This will be AUTO IMPLEMENTED by Spring into a Bean called courseRepository
 // CRUD refers Create, Read, Update, Delete
 
 @Repository
