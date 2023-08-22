@@ -23,6 +23,7 @@ public class InstructorService {
     }
     @Transactional
     public void createNewInstructor(Instructor instructor) {
+        instructor.setInstructorId(0);
         instructorDAO.save(instructor);
     }
 
