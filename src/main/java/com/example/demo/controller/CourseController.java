@@ -3,6 +3,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Course;
 import com.example.demo.service.CoursesService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class CourseController {
     private final CoursesService coursesService;
 
     @PostMapping
-    public void add(@RequestBody Course course)
+    public void add(@RequestBody @Valid Course course)
     {
         coursesService.addCourse(course);
 //        return new ResponseEntity<>(HttpStatus.CREATED);
