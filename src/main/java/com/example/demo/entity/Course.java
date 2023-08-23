@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -27,5 +28,6 @@ public class Course {
 
     @ManyToOne()
     @JoinColumn(name = "instructorId",nullable = false)
+    @JsonIgnoreProperties("courses")
     private Instructor instructor;
 }

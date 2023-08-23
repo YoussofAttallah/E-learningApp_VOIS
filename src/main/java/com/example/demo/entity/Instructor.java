@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -36,7 +37,7 @@ public class Instructor {
     @Column(name = "link")
     private String link;
     @OneToMany(mappedBy = "instructor")
-    @JsonIgnore
+    @JsonIgnoreProperties("instructor")
     private List<Course> courses;
 
 }
