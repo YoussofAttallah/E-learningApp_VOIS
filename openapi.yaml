@@ -269,7 +269,7 @@ paths:
         '500':
           $ref: '#/components/responses/500Error'
   
-  /instructor/{instructorName}:
+  /instructor/search/{instructorName}:
     get:
       tags:
         - instructor
