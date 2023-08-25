@@ -8,14 +8,14 @@ import jakarta.persistence.Id;
 @Entity(name = "client") // This tells Hibernate to make a table out of this class
 public class User {
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-
     private String firstName;
     private String lastName;
-
     private String email;
     private String phone;
+    private String department;
+    private String level;
 
     public Integer getId() {
         return id;
@@ -40,6 +40,7 @@ public class User {
     public void setLastName(String name) {
         this.lastName = name;
     }
+
     public String getEmail() {
         return email;
     }
@@ -47,6 +48,7 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
+
     public String getPhone() {
         return phone;
     }
@@ -54,4 +56,21 @@ public class User {
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
+    public String getLevel() {
+        return level;
+    }
+
+    public void setLevel(String level) {
+        this.level = level;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
 }

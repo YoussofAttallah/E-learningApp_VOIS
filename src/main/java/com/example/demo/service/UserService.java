@@ -25,7 +25,18 @@ public class UserService {
     @Transactional
     public User getUser(Integer userId) {
         return userRepository.findById(userId)
-                .orElseThrow(() -> new NotFoundException("instructor not found"));
+                .orElseThrow(() -> new NotFoundException("User not found"));
+    }
+    @Transactional
+    public User updateUser(Integer userId, User user) {
+        userRepository.findById(userId).orElseThrow(() -> new NotFoundException("user doesn't exist"));
+        userRepository.save(user);
+        return user;
+    }
+    @Transactional
+    public void deleteUser(Integer userId) {
+        userRepository.findById(userId).orElseThrow(() -> new NotFoundException("user doesn't exist"));
+        userRepository.deleteById(userId);
     }
 }
 
