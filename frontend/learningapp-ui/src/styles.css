@@ -1,0 +1,35 @@
+/* styles.css */
+.course-card {
+    border: 1px solid #ccc;
+    background-color: #f4f4f4;
+    /* Change this to your desired background color */
+    padding: 10px;
+    width: 300px;
+    /* Adjust card width as needed */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.course-image {
+    max-width: 100%;
+    max-height: 150px;
+    object-fit: cover;
+}
+
+.course-details {
+    margin-top: 10px;
+    /* Add any additional styling for course details */
+}
+.CourseFinder {
+    display: flex;
+    flex-wrap: wrap;
+    /* Wrap cards to next line if needed */
+    gap: 20px;
+    /* Adjust spacing between cards */
+}
+.course-card-link {
+    text-decoration: none;
+    color: #333;
+    /* Add other styling as needed */
+}

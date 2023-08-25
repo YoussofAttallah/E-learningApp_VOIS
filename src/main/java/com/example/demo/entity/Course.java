@@ -19,12 +19,12 @@ public class Course {
     private String title;
     @NonNull
     private String link;
-    private Integer duration;
+    private Integer duration=0;
 //    private Integer instructorId;
     private String imageLink;
-    private Integer viewersNum;
-    private Integer ratingNum;
-    private Integer totalRating;
+    private Integer viewersNum =0;
+    private Integer ratingNum=0;
+    private Integer totalRating=0;
 
     @ManyToOne()
     @JoinColumn(name = "instructorId",nullable = false)

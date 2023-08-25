@@ -19,6 +19,7 @@ public class CourseController {
     private final CoursesService coursesService;
 
     @PostMapping
+    @CrossOrigin(origins = "http://localhost:3000")
     public void add(@RequestBody @Valid Course course)
     {
         coursesService.addCourse(course);
@@ -26,6 +27,7 @@ public class CourseController {
     }
 
     @PutMapping("/{id}")
+    @CrossOrigin(origins = "http://localhost:3000")
     public ResponseEntity<?> update(@PathVariable Integer id,
                                     @RequestBody Map<String, Object> updates)
     {
@@ -54,6 +56,7 @@ public class CourseController {
     }
 
 @DeleteMapping("/{id}")
+@CrossOrigin(origins = "http://localhost:3000")
 public ResponseEntity<?> deleteCourse(@PathVariable Integer id)
 {
     coursesService.deleteCourse(id);
