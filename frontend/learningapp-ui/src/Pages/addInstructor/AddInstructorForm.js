@@ -1,38 +1,30 @@
 import React, { useState } from "react";
 import axios from "axios";
-import classes from "./addCourseform.module.css";
 // **Created a new css file and imported it**
-import "./addCourseform.css";
+import "./addInstructorForm.css";
 
-function AddCourseForm() {
-  const [title, setTitle] = useState("");
+function AddInstructorForm() {
+  const [instructorName, setinstructorName] = useState("");
   const [link, setLink] = useState("");
-  const [duration, setDuration] = useState(0);
-  const [imageLink, setImageLink] = useState("");
-  const [instructorId, setInstructorId] = useState(0);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const newCourse = {
-      title,
+    const newInstructor = {
+      instructorName,
       link,
-      duration,
-      imageLink,
-      instructor: {
-        instructorId,
-      },
     };
 
     try {
       const response = await axios.post(
-        "http://localhost:8080/api/courses",
-        newCourse
+        "http://localhost:8080/api/instructor",
+        newInstructor
       );
-      console.log("Course added:", response.data);
+      console.log("Instructor added:", response.data);
       // Handle success or navigation to a different view
     } catch (error) {
-      console.error("Error adding course:", error);
+      console.error("Error adding Instructor:", error);
     }
   };
 
@@ -40,15 +32,15 @@ function AddCourseForm() {
     // **Added Clase Name**
     <div className="add-course-section">
       <form onSubmit={handleSubmit}>
-        <h2>Add New Course</h2>
+        <h2>Add New Instructor</h2>
         {/* // **Added a div around every label and input** */}
 
         <div>
-          <label>Title:</label>
+          <label>Instructor Name:</label>
           <input
             type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={instructorName}
+            onChange={(e) => setinstructorName(e.target.value)}
           />
         </div>
 
@@ -61,7 +53,7 @@ function AddCourseForm() {
           />
         </div>
 
-        <div>
+        {/* <div>
           <label>Duration (hours):</label>
           <input
             type="number"
@@ -86,11 +78,11 @@ function AddCourseForm() {
             value={instructorId}
             onChange={(e) => setInstructorId(Number(e.target.value))}
           />
-        </div>
-        <button type="submit">Add Course</button>
+        </div> */}
+        <button type="submit">Add Instructor</button>
       </form>
     </div>
   );
 }
 
-export default AddCourseForm;
+export default AddInstructorForm;

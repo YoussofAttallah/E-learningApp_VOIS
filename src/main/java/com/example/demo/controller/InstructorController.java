@@ -23,6 +23,7 @@ public class InstructorController {
     }
 
     @PostMapping()
+    @CrossOrigin(origins = "http://localhost:3000")
     public void createNewInstructor(@RequestBody @Valid Instructor instructor) {
         instructorService.createNewInstructor(instructor);
     }

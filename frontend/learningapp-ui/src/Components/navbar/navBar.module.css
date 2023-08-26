@@ -1,37 +1,57 @@
-.Navbarcontainer{
-    display: flex;
-    justify-content: space-between;
-    width: 90%;
-    margin: auto;
-    border-bottom: 1px solid rgb(180, 174, 174);
+.Navbarcontainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgb(180, 174, 174);
+  /* padding-top: 20px; */
+  padding: 20px 0 0;
 }
-.navbar2conrainer{
-    display: flex;
-    white-space: nowrap;
-   
-    gap:10%;
-    padding-top:2rem;
+.navbar2conrainer {
+  display: flex;
+  white-space: nowrap;
+  gap: 30px;
+}
+.navbar2conrainer a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+  position: relative;
+}
+.navbar2conrainer a::after {
+  content: "";
+  position: absolute;
+  bottom: -28px;
+  right: 0;
+  width: 0;
+  height: 3px;
+  background-color: #e93c44;
+  transition: 0.2s;
+}
+.navbar2conrainer a:hover::after {
+  width: 100%;
+  right: unset;
+  left: 0;
 }
 
-.logocontainer{
-    width: 30%;
-    display: flex;
-    gap:1rem;
-    font-size: 1.5rem;
-    font-weight: 600;
-   
+.logocontainer {
+  /* width: 30%; */
+  display: flex;
+  gap: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
-.imgcontainer{
-   
- width: 17%;
+.imgcontainer {
+  width: 17%;
 }
-.imgc{
-    width: 100%;
-  
+.imgc {
+  width: 100%;
 }
 
-.lh{
-    white-space: nowrap;
-    font-size: 1.2rem;
-    color:gray;
+.lh {
+  white-space: nowrap;
+  font-size: 1.2rem;
+  color: hsl(0, 0%, 75%);
 }

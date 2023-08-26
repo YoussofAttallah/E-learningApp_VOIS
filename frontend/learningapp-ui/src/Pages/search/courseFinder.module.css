@@ -1,14 +1,54 @@
 .allh {
-    text-align: center;
+  /* text-align: center; */
+  display: grid;
+  justify-items: center;
+  /* justify-content: center; */
+}
+
+.allh form {
+  background-color: hsl(0, 0%, 90%);
+  display: grid;
+  justify-self: center;
+  grid-template-columns: 2fr 1fr;
+  width: 80%;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 40px;
+  gap: 50px;
+}
+.allh form input {
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  font-size: 1rem;
+  min-width: 200px;
+  width: 95%;
+}
+.allh form input:focus {
+  outline: none;
+}
+.allh form button {
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  background-color: #e93c44;
+  color: white;
+  border-radius: 30px;
+}
+@media (max-width: 767px) {
+  .allh form {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }
 
 .cardcontainer {
-    width: 90%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: repeat(4, 320px);
-    column-gap: 2rem;
-    row-gap: 2rem;
-    overflow-wrap: normal;
-
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(4, 320px);
+  column-gap: 2rem;
+  row-gap: 2rem;
+  overflow-wrap: normal;
 }
