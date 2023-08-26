@@ -1,9 +1,8 @@
 
 import React, { useState } from 'react';
 import axios from 'axios';
-import CourseCard from './CourseCard';
-import './styles.css';
-import {Link } from 'react-router-dom';
+import Card from '../../Components/Card/Card';
+import classes from './courseFinder.module.css';
 function CourseFinder() {
   const [courseTitle, setcourseTitle] = useState('');
   const [courses, setcourses] = useState(null);
@@ -27,20 +26,19 @@ function CourseFinder() {
   };
 
   return (
-    <div className="CourseFinder">
-      <Link to="/add">Add Course</Link>
+    <div className={classes.allh}>
       <h1>find Course By Title</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Course ID:
+          Course Title:
           <input type="text" value={courseTitle} onChange={(e) => setcourseTitle(e.target.value)} />
         </label>
         <button type="submit">Find Course</button>
       </form>
       {courses && (
-        <div>
+        <div className={classes.cardcontainer}>
           {courses.map(course => (
-            <CourseCard key={course.id} course={course} />
+            <Card key={course.id} course={course} />
           ))}
         </div>
       )}

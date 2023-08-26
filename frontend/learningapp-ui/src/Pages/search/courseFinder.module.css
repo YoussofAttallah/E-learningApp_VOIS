@@ -1,0 +1,14 @@
+.allh {
+    text-align: center;
+}
+
+.cardcontainer {
+    width: 90%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 320px);
+    column-gap: 2rem;
+    row-gap: 2rem;
+    overflow-wrap: normal;
+
+}

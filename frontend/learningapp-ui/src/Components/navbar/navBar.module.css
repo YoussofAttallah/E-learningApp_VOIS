@@ -1,0 +1,37 @@
+.Navbarcontainer{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+    border-bottom: 1px solid rgb(180, 174, 174);
+}
+.navbar2conrainer{
+    display: flex;
+    white-space: nowrap;
+   
+    gap:10%;
+    padding-top:2rem;
+}
+
+.logocontainer{
+    width: 30%;
+    display: flex;
+    gap:1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+   
+}
+.imgcontainer{
+   
+ width: 17%;
+}
+.imgc{
+    width: 100%;
+  
+}
+
+.lh{
+    white-space: nowrap;
+    font-size: 1.2rem;
+    color:gray;
+}

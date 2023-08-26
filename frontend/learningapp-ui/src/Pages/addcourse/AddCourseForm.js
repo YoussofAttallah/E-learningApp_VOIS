@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-
+import classes from './addCourseform.module.css';
 function AddCourseForm() {
     const [title, setTitle] = useState('');
     const [link, setLink] = useState('');
@@ -33,7 +32,6 @@ function AddCourseForm() {
 
     return (
         <div>
-            <Link to="/">find by title</Link>
             <h2>Add New Course</h2>
             <form onSubmit={handleSubmit}>
                 <label>Title:</label>
