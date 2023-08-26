@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { useNavigate } from "react-router-dom";
 
 function CoursePage() {
+    const navigate = useNavigate();
     const { id } = useParams();
     const [course, setCourse] = useState(null);
 
@@ -32,6 +34,16 @@ function CoursePage() {
             }
         }
     };
+    const handleDelete = async() => {
+        try {
+            await axios.delete(`http://localhost:8080/api/courses/${id}`);
+            navigate(`/all`)
+
+
+        } catch (error) {
+            console.error('Error deleting course:', error);
+        }
+    }
     if (!course) {
         return <div>Loading...</div>; // Handle loading state
     }
@@ -57,6 +69,7 @@ function CoursePage() {
                 </select>
                 <button onClick={handleRate}>Rate</button>
             </div>
+            <button onClick={handleDelete}>Delete Course</button>
         </div>
     );
 }

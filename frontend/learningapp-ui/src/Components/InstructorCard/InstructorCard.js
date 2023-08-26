@@ -14,7 +14,7 @@ function CourseCard({ instructor }) {
     }
   //TO be DONE 
     const handleclick=(id)=>{
-        navigate(`/course/${id}`)
+        navigate(`/instructor/${id}`)
     }
     return (
         

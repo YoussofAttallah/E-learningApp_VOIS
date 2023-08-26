@@ -8,6 +8,7 @@ import './App.css';
 import Homepage from './Pages/homepage/Homepage';
 import AddInstructorForm from './Pages/addInstructor/AddInstructorForm';
 import Instructors from './Pages/instructors/Instructors';
+import Instructorpage from './Pages/instructorPage/Instructorpage';
 function App() {
   return (
     <div className="app">
@@ -22,6 +23,8 @@ function App() {
         <Route path="/add" element={<AddCourseForm/>} />
         <Route path="/instructor/add" element={<AddInstructorForm />} />
         <Route path="/instructor/all" element={<Instructors />} />
+        <Route path="/instructor/:id" element={<Instructorpage />} />
+
         
       </Routes>
     
