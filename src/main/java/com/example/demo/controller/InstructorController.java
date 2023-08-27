@@ -2,7 +2,7 @@ package com.example.demo.controller;
 
 import com.example.demo.entity.Instructor;
 import com.example.demo.service.InstructorService;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
