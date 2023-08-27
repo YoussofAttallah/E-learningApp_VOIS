@@ -37,25 +37,33 @@
 //}
 package com.example.demo.controller;
 
+import com.example.demo.dto.UserDTO;
 import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
-import javax.validation.Valid;
+import org.modelmapper.ModelMapper;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
     private final UserService userService;
+    private final ModelMapper modelMapper;
 
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ModelMapper modelMapper) {
         this.userService = userService;
+        this.modelMapper = modelMapper;
     }
 
     @GetMapping("/all")
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public List<UserDTO> getAllUsers() {
+        return userService.getAllUsers()
+                .stream()
+                .map(user -> modelMapper.map(user, UserDTO.class))
+                .collect(Collectors.toList());
     }
 
     @PostMapping("/add")
@@ -65,6 +73,6 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public User getUser(@PathVariable(name = "userId") Integer userId) {
-        return userService.getUser(userId);
+        return modelMapper.map(userService.getUser(userId), User.class);
     }
 }
