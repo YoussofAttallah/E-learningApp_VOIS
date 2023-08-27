@@ -1,2 +1,101 @@
-/* styles.css */
+::selection {
+  background: #e93c44;
+  color: white;
+  padding: 10px;
+}
+.course-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+  padding: 80px calc(100px + 5vw);
+}
+.course-image {
+  max-width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 0 0 -1px #e93c44;
+  transition: 0.2s ease-in-out;
+}
+.course-image:hover {
+  box-shadow: 0 0 0 15px #e93c44;
+}
+.course-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 20px;
+}
 
+.course-info h2 {
+  text-align: center;
+  font-size: 2rem;
+}
+.course-info p {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.course-info p img {
+  width: 40px;
+  fill: #e93c44;
+}
+.course-info p span {
+  margin-left: 5px;
+  font-weight: 500;
+  color: hsla(0, 0%, 0%, 0.5);
+}
+
+.course-info > div {
+  background-color: hsl(0, 0%, 90%);
+  padding: 15px;
+  border-radius: 40px;
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.course-info > div select {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 30px;
+}
+.course-info > div select:focus {
+  outline: none;
+}
+.course-info > div button {
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: none;
+  background-color: #e93c44;
+  color: white;
+  border-radius: 30px;
+}
+@media (max-width: 767px) {
+  .course-page {
+    padding: 0;
+    gap: 0;
+  }
+  .course-page .course-image {
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .course-page .course-image:hover {
+    box-shadow: none;
+  }
+  .course-page .course-image img {
+    border-radius: 0;
+  }
+  .course-info {
+    padding: 0 10px;
+  }
+  .course-info > div {
+    font-size: 1rem;
+  }
+}
