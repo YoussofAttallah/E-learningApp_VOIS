@@ -43,9 +43,8 @@ paths:
           $ref: '#/components/responses/429Error'
         '500':
           $ref: '#/components/responses/500Error'
-  /courses/all:
     get:
-      tags: 
+      tags:
         - courses
       summary: Finds All Courses
       responses:
@@ -76,7 +75,7 @@ paths:
         '500':
           $ref: '#/components/responses/500Error'
 
-  /courses/{courseId}:
+  /courses/findById/{id}:
     get:
       tags:
         - courses
@@ -84,7 +83,7 @@ paths:
       description: Returns a single course
       operationId: getCourseById
       parameters:
-        - name: courseId
+        - name: id
           in: path
           description: Id of course to return
           required: true
@@ -97,8 +96,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Course'          
-        
+                $ref: '#/components/schemas/Course'
+
         '400':
           $ref: '#/components/responses/400Error'
         '401':
@@ -117,13 +116,13 @@ paths:
           $ref: '#/components/responses/429Error'
         '500':
           $ref: '#/components/responses/500Error'
-
+  /courses/{id}:
     put:
       tags:
         - courses
       summary: update existing course
       parameters:
-        - name: courseId
+        - name: id
           in: path
           required: true
           schema:
@@ -166,7 +165,7 @@ paths:
         - courses
       summary: delete specific course
       parameters:
-        - name: courseId
+        - name: id
           in: path
           required: true
           schema:
@@ -193,18 +192,18 @@ paths:
           $ref: '#/components/responses/429Error'
         '500':
           $ref: '#/components/responses/500Error'
-   
-  /courses/{courseName}:
+
+  /courses/findByTitle/{title}:
     get:
       tags:
         - courses
-      summary: Find course by name
+      summary: Find course by Title
       description: Returns a single course
-      operationId: getCourseByName
+      operationId: getCourseByTitle
       parameters:
-        - name: courseName
+        - name: title
           in: path
-          description: name of course to return
+          description: title of course to return
           required: true
           schema:
             type: string
@@ -215,8 +214,8 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Course'          
-            
+                $ref: '#/components/schemas/Course'
+
         '400':
           $ref: '#/components/responses/400Error'
         '401':
@@ -237,7 +236,7 @@ paths:
           $ref: '#/components/responses/500Error'
   /instructor/all:
     get:
-      tags: 
+      tags:
         - instructor
       summary: Finds All instructors
       responses:
@@ -249,7 +248,7 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Instructor'
-                  
+
         '400':
           $ref: '#/components/responses/400Error'
         '401':
@@ -268,8 +267,8 @@ paths:
           $ref: '#/components/responses/429Error'
         '500':
           $ref: '#/components/responses/500Error'
-  
-  /instructor/{instructorName}:
+
+  /instructor/search/{instructorName}:
     get:
       tags:
         - instructor
@@ -290,7 +289,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Instructor'          
+                $ref: '#/components/schemas/Instructor'
         '400':
           $ref: '#/components/responses/400Error'
         '401':
@@ -331,7 +330,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Instructor'          
+                $ref: '#/components/schemas/Instructor'
         '400':
           $ref: '#/components/responses/400Error'
         '401':
@@ -705,7 +704,7 @@ components:
                 message: Internal Error
                 url: "https://{baseURL}/developer-portal/terms"
   schemas:
-    Error: 
+    Error:
       type: object
       properties:
         code:
@@ -723,42 +722,46 @@ components:
     Course:
       type: object
       properties:
-        courseId:
+        id:
           type: integer
           format: int64
           example: 1046
-        CourseTitle:
+        title:
           type: string
           format: string
           example: "Java for beginners"
-        CourseLink:
+        link:
           type: string
           format: url
           example: "www.udemy.com"
-        CourseImg:
-          type: string
-          format: url
-          example: "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2020/02/basic-syntax-of-Java-Programming.png"
-        ViewersNum:
+        duration:
           type: integer
           format: int64
           example: 10
-        RatingNum:
+        imageLink:
+          type: string
+          format: url
+          example: "https://www.softwaretestinghelp.com/wp-content/qa/uploads/2020/02/basic-syntax-of-Java-Programming.png"
+        viewersNum:
+          type: integer
+          format: int64
+          example: 10
+        ratingNum:
           type: integer
           format: int64
           example: 9
-        RatingTotal:
+        TotalRating:
           type: number
           format: float
           example: 3.5
-        #this can contain an enum 
-        CourseTags:
-          type: array
-          items: 
-            type: string
-            format: string
-          example: ["frontend","devops"]
-          
+          #this can contain an enum
+          # CourseTags:
+          #   type: array
+          #   items:
+          #     type: string
+          #     format: string
+          #   example: ["frontend","devops"]
+
     Instructor:
       type: object
       properties:
@@ -833,14 +836,14 @@ components:
             https://{baseURL}/developer-portal/term
 
           # Courses:
-        #   type: array
-        #   items: 
-        #     type: integer
-        #     format: CourseId
-        #     example: ["frontend","devops"]
+          #   type: array
+          #   items:
+          #     type: integer
+          #     format: CourseId
+          #     example: ["frontend","devops"]
 
 
-          
+
       xml:
         name: order
    
